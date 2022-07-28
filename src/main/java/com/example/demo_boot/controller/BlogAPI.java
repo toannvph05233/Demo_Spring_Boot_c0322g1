@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/blogs")
 public class BlogAPI {
     @Autowired
@@ -15,7 +16,7 @@ public class BlogAPI {
 
     @GetMapping
     public Page<Blogs> getPage() {
-        return blogService.getAll(PageRequest.of(1, 3));
+        return blogService.getAll(PageRequest.of(0, 3));
     }
 
     @PostMapping
